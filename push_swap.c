@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/27 17:19:17 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/05/27 17:38:09 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int     main()
         if(size == 5)
             sort_five_num(ptr, ptr1, size, size1);
     }
-    // for(int i = 0; i < size; i++)
-    //     printf("%d\n", ptr[i]);
+    for(int i = 0; i < size; i++)
+        printf("%d\n", ptr[i]);
     return 0;
 }
