@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_hundred_num.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/28 11:35:53 by mokellat         ###   ########.fr       */
+/*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
+/*   Updated: 2021/05/28 12:19:21 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     main(int argc, char **argv)
+void    chunk_1(int *stack_a, int size_a)
 {
-    int *stack_a;
-    int *stack_b;
-    int size;
-    int size1;
     int i;
-    
+    int min;
+    int cmpt;
+
     i = 0;
-    size = argc - 1;
-    size1 = 0;
-    stack_a = malloc(sizeof(int) * size);
-    stack_b = malloc(sizeof(int) * size);
-    while(i < argc - 1)
+    while(i < 100)
     {
-        stack_a[i] = ft_atoi(argv[i + 1]);
+        if(stack_a[i] >= 0 || stack_a[i] < 20)
+        {
+            min = stack_a[i];
+            if(stack_a[i] <= min)
+            {
+                min = stack_a[i];
+                cmpt = i;
+            }
+        }
         i++;
     }
-    if(size == 3)
-        three_numbers(stack_a, &size);
-    if(size == 5)
-        sort_five_num(stack_a, stack_b, size, size1);
-    return 0;
+}
+
+void    hundred_num(int *stack_a, int *stack_b, int size_a, int size_b)
+{
+    
 }
