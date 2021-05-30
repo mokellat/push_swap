@@ -1,4 +1,4 @@
-CC = gcc -o push_swap
+CC = gcc -Wall -Werror -Wextra -o push_swap
 DFLAGS = -fsanitize=address
 NAME = push_swap
 
@@ -16,6 +16,7 @@ SRC = pa.c\
 	  push_swap.c\
 	  sort_three_num.c\
 	  sort_five_num.c\
+	  sort_hundred_num.c\
 
 all : $(NAME)
 

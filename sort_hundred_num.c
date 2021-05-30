@@ -12,29 +12,56 @@
 
 #include "push_swap.h"
 
-void    chunk_1(int *stack_a, int size_a)
+void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
 {
     int i;
     int min;
     int cmpt;
+    int index;
+    int j;
 
-    i = 0;
-    while(i < 100)
+    j = 0;
+    index = -1;
+    while(++index < 100)
     {
-        if(stack_a[i] >= 0 || stack_a[i] < 20)
+        i = 0;
+        while(i < 100)
         {
-            min = stack_a[i];
-            if(stack_a[i] <= min)
+            if(stack_a[i] >= 0 || stack_a[i] < 20)
             {
                 min = stack_a[i];
-                cmpt = i;
+                if(stack_a[i] <= min)
+                {
+                    min = stack_a[i];
+                    cmpt = i;
+                }
             }
+            i++;
         }
-        i++;
+        if(cmpt <= 50)
+        {
+            while(j < cmpt)
+                ra(stack_a, size_a);
+            pb(stack_b, stack_b, &size_a, &size_b);
+        }
+        else
+        {
+            j = 0;
+            while(j < 50 - cmpt)
+                rra(stack_a, size_a);
+            pb(stack_a, stack_b, &size_a, &size_b);
+        }
     }
 }
 
 void    hundred_num(int *stack_a, int *stack_b, int size_a, int size_b)
 {
-    
+    int i;
+
+    i = 0;
+    while(i < 100)
+    {
+        chunk_1(stack_a, size_a, stack_b, size_b);
+        i++;
+    }
 }

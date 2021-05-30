@@ -67,5 +67,5 @@ void    sort_five_num(int *stack_a, int *stack_b, int size_a, int size_b)
     if(stack_b[0] < stack_b[1])
         rrb(stack_b, size_b);
     pa(stack_a, stack_b, &size_a, &size_b);
-    pa(stack_a, stack_b, &size_a, &size_b);  
+    pa(stack_a, stack_b, &size_a, &size_b); 
 }
