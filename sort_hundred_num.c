@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/28 12:19:21 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:47:21 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
     int index;
     int j;
 
-    j = 0;
     index = -1;
     while(++index < 100)
     {
         i = 0;
+        min = stack_a[i];
         while(i < 100)
         {
-            if(stack_a[i] >= 0 || stack_a[i] < 20)
+            if(stack_a[i] >= 0 && stack_a[i] < 20)
             {
-                min = stack_a[i];
+                //min = stack_a[i];
                 if(stack_a[i] <= min)
                 {
                     min = stack_a[i];
@@ -38,17 +38,26 @@ void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
             }
             i++;
         }
+        printf("this is the cmpt : %d \n", cmpt);
+        printf("this is the min : %d \n", min);
         if(cmpt <= 50)
         {
+            j = 0;
             while(j < cmpt)
+            {
                 ra(stack_a, size_a);
+                j++;
+            }
             pb(stack_b, stack_b, &size_a, &size_b);
         }
         else
         {
             j = 0;
-            while(j < 50 - cmpt)
+            while(j <= size_a - cmpt)
+            {
                 rra(stack_a, size_a);
+                j++;
+            }
             pb(stack_a, stack_b, &size_a, &size_b);
         }
     }
@@ -59,9 +68,5 @@ void    hundred_num(int *stack_a, int *stack_b, int size_a, int size_b)
     int i;
 
     i = 0;
-    while(i < 100)
-    {
-        chunk_1(stack_a, size_a, stack_b, size_b);
-        i++;
-    }
+    chunk_1(stack_a, size_a, stack_b, size_b);
 }

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/28 11:35:53 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/01 19:51:31 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int     main(int argc, char **argv)
     int size;
     int size1;
     int i;
-    
+
     i = 0;
     size = argc - 1;
     size1 = 0;
@@ -30,16 +30,18 @@ int     main(int argc, char **argv)
         stack_a[i] = ft_atoi(argv[i + 1]);
         i++;
     }
-    if(size == 3)
-        three_numbers(stack_a, &size);
-    else if(size == 5)
-        sort_five_num(stack_a, stack_b, size, size1);
-    else if(size == 100)
-        hundred_num(stack_a, stack_b, size, size1);
-    for(i = 0; i <= size; i++)
+    //if(size == 3)
+    //    three_numbers(stack_a, &size);
+    //else if(size == 5)
+    //    sort_five_num(stack_a, stack_b, size, size1);
+    //else if(size == 100)
+    //    hundred_num(stack_a, stack_b, size, size1);
+    pb(stack_a, stack_b, &size, &size1);
+    //printf("beginning of printing \n");
+    for(i = 0; i < size; i++)
         printf("%d \n", stack_a[i]);
     printf("this is the second array \n");
-    for(i = 0; i <= size1; i++)
+    for(i = 0; i < size1; i++)
         printf("%d \n", stack_b[i]);
     return 0;
 }
