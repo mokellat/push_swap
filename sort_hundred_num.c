@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
+void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
 {
     int i;
     int min;
@@ -25,9 +25,9 @@ void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
     {
         i = 0;
         min = stack_a[i];
-        while(i < 100)
+        while(i < *size_a)
         {
-            if(stack_a[i] >= 0 && stack_a[i] < 20)
+            if(stack_a[i] >= minimum && stack_a[i] < max)
             {
                 //min = stack_a[i];
                 if(stack_a[i] <= min)
@@ -38,35 +38,39 @@ void    chunk_1(int *stack_a, int size_a, int *stack_b, int size_b)
             }
             i++;
         }
-        printf("this is the cmpt : %d \n", cmpt);
-        printf("this is the min : %d \n", min);
-        if(cmpt <= 50)
+        if(cmpt <= *size_a / 2 && min < max)
         {
             j = 0;
             while(j < cmpt)
             {
-                ra(stack_a, size_a);
+                ra(stack_a, *size_a);
                 j++;
             }
-            pb(stack_b, stack_b, &size_a, &size_b);
+            pb(stack_a, stack_b, size_a, size_b);
         }
-        else
+        else if(cmpt > *size_a / 2 && min < max)
         {
             j = 0;
-            while(j <= size_a - cmpt)
+            while(j < *size_a - cmpt)
             {
-                rra(stack_a, size_a);
+                rra(stack_a, *size_a);
                 j++;
             }
-            pb(stack_a, stack_b, &size_a, &size_b);
+            pb(stack_a, stack_b, size_a, size_b);
         }
     }
 }
 
-void    hundred_num(int *stack_a, int *stack_b, int size_a, int size_b)
+void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
     int i;
 
     i = 0;
-    chunk_1(stack_a, size_a, stack_b, size_b);
+    chunk(stack_a, size_a, stack_b, size_b, 0, 20);
+    chunk(stack_a, size_a, stack_b, size_b, 20, 40);
+    chunk(stack_a, size_a, stack_b, size_b, 40, 60);
+    chunk(stack_a, size_a, stack_b, size_b, 60, 80);
+    chunk(stack_a, size_a, stack_b, size_b, 80, 100);
+    while(i < *size_b)
+        pa(stack_a, stack_b, size_a, size_b);
 }

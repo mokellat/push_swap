@@ -31,6 +31,6 @@ int     *rra(int *stack_a, int size);
 int     *rrb(int *stack_a, int size);
 void    three_numbers(int *stack_a, int *size_a);
 void    sort_five_num(int *stack_a, int *stack_b, int size_a, int size_b);
-void    hundred_num(int *stack_a, int *stack_b, int size_a, int size_b);
+void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
 
 #endif

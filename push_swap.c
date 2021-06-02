@@ -30,18 +30,19 @@ int     main(int argc, char **argv)
         stack_a[i] = ft_atoi(argv[i + 1]);
         i++;
     }
-    //if(size == 3)
-    //    three_numbers(stack_a, &size);
-    //else if(size == 5)
-    //    sort_five_num(stack_a, stack_b, size, size1);
-    //else if(size == 100)
-    //    hundred_num(stack_a, stack_b, size, size1);
-    pb(stack_a, stack_b, &size, &size1);
-    //printf("beginning of printing \n");
-    for(i = 0; i < size; i++)
-        printf("%d \n", stack_a[i]);
-    printf("this is the second array \n");
-    for(i = 0; i < size1; i++)
-        printf("%d \n", stack_b[i]);
+    if(size == 3)
+       three_numbers(stack_a, &size);
+    else if(size == 5)
+       sort_five_num(stack_a, stack_b, size, size1);
+    else if(size == 100)
+       hundred_num(stack_a, stack_b, &size, &size1);
+    // ra(stack_a, size);
+    // pb(stack_a, stack_b, &size, &size1);
+    // printf("beginning of printing \n");
+    // for(i = 0; i < size; i++)
+    //     printf("%d \n", stack_a[i]);
+    // printf("this is the second array \n");
+    // for(i = 0; i < size1; i++)
+    //     printf("%d \n", stack_b[i]);
     return 0;
 }
