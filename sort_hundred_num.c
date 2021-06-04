@@ -61,16 +61,51 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum,
     }
 }
 
-void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
+void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < 100)
+    {
+        if (stack_a[i] >= minimum && stack_a[i] < max)
+        {
+            printf("this is our number %d \n", stack_a[i]);
+            printf("this is our index %d \n", i);
+            if (i <= *size_a / 2)
+            {
+                j = 0;
+                while (j < i)
+                {
+                    ra(stack_a, *size_a);
+                    j++;
+                }
+                pb(stack_a, stack_b, size_a, size_b);
+            }
+            else
+            {
+                j = 0;
+                while (j < *size_a - i)
+                {
+                    rra(stack_a, *size_a);
+                    j++;
+                }
+                pb(stack_a, stack_b, size_a, size_b);
+            }
+        }
+        i++;
+    }
+}
+
+void hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
     int i;
 
     i = 0;
-    chunk(stack_a, size_a, stack_b, size_b, 0, 20);
-    chunk(stack_a, size_a, stack_b, size_b, 20, 40);
-    chunk(stack_a, size_a, stack_b, size_b, 40, 60);
-    chunk(stack_a, size_a, stack_b, size_b, 60, 80);
-    chunk(stack_a, size_a, stack_b, size_b, 80, 100);
-    while(i < *size_b)
-        pa(stack_a, stack_b, size_a, size_b);
+    chunk1(stack_a, size_a, stack_b, size_b, 0, 20);
+    // chunk1(stack_a, size_a, stack_b, size_b, 20, 40);
+    // chunk1(stack_a, size_a, stack_b, size_b, 40, 60);
+    // chunk1(stack_a, size_a, stack_b, size_b, 60, 80);
+    // chunk1(stack_a, size_a, stack_b, size_b, 80, 100);
 }
