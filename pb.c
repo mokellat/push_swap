@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:24:41 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/26 16:14:56 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/05 14:50:25 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void    pb(int *stack_a, int *stack_b, int *size_a, int *size_b)
     i = 0;
     temp = stack_a[0];
     i = 0;
+    if(*size_a == 0)
+        return ;
     while(i < *size_a - 1)
     {
         stack_a[i] = stack_a[i + 1];

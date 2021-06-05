@@ -6,57 +6,93 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/04 17:26:50 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/05 15:31:40 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
+int     min_search(int *stack_a, int *size_a)
 {
     int i;
     int min;
+
+    i = 0;
+    min = stack_a[i];
+    while(i < *size_a)
+    {
+        if(stack_a[i] <= min)
+            min = stack_a[i];
+        i++;
+    }
+    return (min);
+}
+
+int     max_search(int *stack_a, int *size_a)
+{
+    int i;
+    int max;
+
+    i = 0;
+    max = stack_a[i];
+    while(i < *size_a)
+    {
+        if(stack_a[i] >= max)
+            max = stack_a[i];
+        i++;
+    }
+    return (max);
+}
+
+void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
+{
+    int i;
+    int maximum;
+    int minimum;
+    int max;
     int cmpt;
     int index;
     int j;
 
+    i = 0;
     index = -1;
+    minimum = min_search(stack_a, size_a);
+    maximum = max_search(stack_a, size_a);
     while(++index < 100)
     {
         i = 0;
-        min = stack_a[i];
-        while(i < *size_a)
+        max = stack_b[i];
+        while(i < *size_b)
         {
-            if(stack_a[i] >= minimum && stack_a[i] < max)
+            if(stack_b[i] >= 0 && stack_b[i] < 100)
             {
-                //min = stack_a[i];
-                if(stack_a[i] <= min)
+                if(stack_b[i] >= max)
                 {
-                    min = stack_a[i];
+                    max = stack_b[i];
                     cmpt = i;
                 }
             }
             i++;
         }
-        if(cmpt <= *size_a / 2)
+        if(cmpt <= *size_b / 2)
         {
             j = 0;
             while(j < cmpt)
             {
-                ra(stack_a, *size_a);
+                rb(stack_b, *size_b);
                 j++;
             }
-            pb(stack_a, stack_b, size_a, size_b);
+            pa(stack_a, stack_b, size_a, size_b);
         }
-        else if(cmpt > *size_a / 2 )
+        else if(cmpt > *size_b / 2)
         {
             j = 0;
-            while(j < *size_a - cmpt)
+            while(j < *size_b - cmpt)
             {
-                rra(stack_a, *size_a);
+                rrb(stack_b, *size_b);
                 j++;
             }
-            pb(stack_a, stack_b, size_a, size_b);
+            pa(stack_a, stack_b, size_a, size_b);
         }
     }
 }
@@ -102,54 +138,10 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
 
 void hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    int i;
-    int max;
-    int cmpt;
-    int index;
-    int j;
-
-    i = 0;
     chunk1(stack_a, size_a, stack_b, size_b, 0, 20);
     chunk1(stack_a, size_a, stack_b, size_b, 20, 40);
     chunk1(stack_a, size_a, stack_b, size_b, 40, 60);
     chunk1(stack_a, size_a, stack_b, size_b, 60, 80);
     chunk1(stack_a, size_a, stack_b, size_b, 80, 100);
-    index = -1;
-    while(++index < 100)
-    {
-        i = 0;
-        max = stack_b[i];
-        while(i < *size_b)
-        {
-            if(stack_b[i] >= 0 && stack_b[i] < 100)
-            {
-                if(stack_b[i] >= max)
-                {
-                    max = stack_b[i];
-                    cmpt = i;
-                }
-            }
-            i++;
-        }
-        if(cmpt <= *size_b / 2)
-        {
-            j = 0;
-            while(j < cmpt)
-            {
-                rb(stack_b, *size_b);
-                j++;
-            }
-            pa(stack_a, stack_b, size_a, size_b);
-        }
-        else if(cmpt > *size_b / 2)
-        {
-            j = 0;
-            while(j < *size_b - cmpt)
-            {
-                rrb(stack_b, *size_b);
-                j++;
-            }
-            pa(stack_a, stack_b, size_a, size_b);
-        }
-    }
+    chunk(stack_a, size_a, stack_b, size_b);
 }

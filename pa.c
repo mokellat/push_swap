@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:39:28 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/31 15:40:10 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/05 14:49:22 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void    pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
     i = 0;
     temp = stack_b[0];
     i = 0;
+    if(*size_b == 0)
+        return ;
     while(i < *size_b - 1)
     { 
         stack_b[i] = stack_b[i + 1];
