@@ -1,4 +1,4 @@
-CC = gcc -Wall -Werror -Wextra -o push_swap
+CC = gcc -o push_swap
 DFLAGS = -fsanitize=address
 NAME = push_swap
 

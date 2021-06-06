@@ -6,49 +6,43 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/05 15:31:40 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/06 21:53:32 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     min_search(int *stack_a, int *size_a)
+void    stack_transform(int *stack_a, int *size_a)
 {
     int i;
     int min;
+    int index;
+    int cmpt;
 
-    i = 0;
-    min = stack_a[i];
-    while(i < *size_a)
+    index = 0;
+    while(index < 100)
     {
-        if(stack_a[i] <= min)
-            min = stack_a[i];
-        i++;
+        i = 0;
+        min = stack_a[i];
+        while(i < 100)
+        {
+            if(stack_a[i] < min)
+            {
+                min = stack_a[i];
+                cmpt = i;
+            }
+            i++;
+        }
+        printf("this is the min %d \n", min);
+        stack_a[cmpt] = index;
+        printf("this is the new value and the index %d %d \n", stack_a[cmpt], index);
+        index++;
     }
-    return (min);
-}
-
-int     max_search(int *stack_a, int *size_a)
-{
-    int i;
-    int max;
-
-    i = 0;
-    max = stack_a[i];
-    while(i < *size_a)
-    {
-        if(stack_a[i] >= max)
-            max = stack_a[i];
-        i++;
-    }
-    return (max);
 }
 
 void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
     int i;
-    int maximum;
-    int minimum;
     int max;
     int cmpt;
     int index;
@@ -56,21 +50,16 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
 
     i = 0;
     index = -1;
-    minimum = min_search(stack_a, size_a);
-    maximum = max_search(stack_a, size_a);
     while(++index < 100)
     {
         i = 0;
         max = stack_b[i];
         while(i < *size_b)
         {
-            if(stack_b[i] >= 0 && stack_b[i] < 100)
+            if(stack_b[i] >= max)
             {
-                if(stack_b[i] >= max)
-                {
-                    max = stack_b[i];
-                    cmpt = i;
-                }
+                max = stack_b[i];
+                cmpt = i;
             }
             i++;
         }
@@ -107,8 +96,6 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
     {
         if (stack_a[i] >= minimum && stack_a[i] < max)
         {
-           // printf("this is our number %d \n", stack_a[i]);
-           // printf("this is our index %d \n", i);
             if (i < *size_a / 2)
             {
                 j = 0;
@@ -138,10 +125,11 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
 
 void hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    chunk1(stack_a, size_a, stack_b, size_b, 0, 20);
-    chunk1(stack_a, size_a, stack_b, size_b, 20, 40);
-    chunk1(stack_a, size_a, stack_b, size_b, 40, 60);
-    chunk1(stack_a, size_a, stack_b, size_b, 60, 80);
-    chunk1(stack_a, size_a, stack_b, size_b, 80, 100);
-    chunk(stack_a, size_a, stack_b, size_b);
+    stack_transform(stack_a, size_a);
+    // chunk1(stack_a, size_a, stack_b, size_b, 0, 20);
+    // chunk1(stack_a, size_a, stack_b, size_b, 20, 40);
+    // chunk1(stack_a, size_a, stack_b, size_b, 40, 60);
+    // chunk1(stack_a, size_a, stack_b, size_b, 60, 80);
+    // chunk1(stack_a, size_a, stack_b, size_b, 80, 100);
+    // chunk(stack_a, size_a, stack_b, size_b);
 }
