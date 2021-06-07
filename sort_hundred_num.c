@@ -6,11 +6,43 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/06 21:53:32 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/07 19:52:29 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int     min_search(int *stack_a, int *size_a)
+{
+    int i;
+    int min;
+
+    i = 0;
+    min = stack_a[i];
+    while(i < *size_a)
+    {
+        if(stack_a[i] <= min)
+            min = stack_a[i];
+        i++;
+    }
+    return (min);
+}
+
+int     max_search(int *stack_a, int *size_a)
+{
+    int i;
+    int max;
+
+    i = 0;
+    max = stack_a[i];
+    while(i < *size_a)
+    {
+        if(stack_a[i] >= max)
+            max = stack_a[i];
+        i++;
+    }
+    return (max);
+}
 
 void    stack_transform(int *stack_a, int *size_a)
 {
@@ -24,9 +56,9 @@ void    stack_transform(int *stack_a, int *size_a)
     {
         i = 0;
         min = stack_a[i];
-        while(i < 100)
+        while(i < *size_a)
         {
-            if(stack_a[i] < min)
+            if(stack_a[i] <= min)
             {
                 min = stack_a[i];
                 cmpt = i;
@@ -50,7 +82,7 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
 
     i = 0;
     index = -1;
-    while(++index < 100)
+    while(*size_b > 0)
     {
         i = 0;
         max = stack_b[i];
@@ -92,44 +124,55 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
     int j;
 
     i = 0;
-    while (i < *size_a + 2)
+    while (*size_a > 0)
     {
-        if (stack_a[i] >= minimum && stack_a[i] < max)
+        i = 0;
+        while(i < *size_a)
         {
-            if (i < *size_a / 2)
+            if (stack_a[i] >= minimum && stack_a[i] < max)
             {
-                j = 0;
-                while (j < i)
+                if (i < *size_a / 2)
                 {
-                    ra(stack_a, *size_a);
-                    j++;
+                    j = 0;
+                    while (j < i)
+                    {
+                        ra(stack_a, *size_a);
+                        j++;
+                    }
+                    pb(stack_a, stack_b, size_a, size_b);
+                    break ;
                 }
-                pb(stack_a, stack_b, size_a, size_b);
-                i = 0;
+                else
+                {
+                    j = 0;
+                    while (j < *size_a - i)
+                    {
+                        rra(stack_a, *size_a);
+                        j++;
+                    }
+                    pb(stack_a, stack_b, size_a, size_b);
+                    break ;
+                }
             }
             else
-            {
-                j = 0;
-                while (j < *size_a - i )
-                {
-                    rra(stack_a, *size_a);
-                    j++;
-                }
-                pb(stack_a, stack_b, size_a, size_b);
-                i = 0;
-            }
+                i++;
         }
-        i++;
     }
 }
 
-void hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
+void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    stack_transform(stack_a, size_a);
-    // chunk1(stack_a, size_a, stack_b, size_b, 0, 20);
-    // chunk1(stack_a, size_a, stack_b, size_b, 20, 40);
-    // chunk1(stack_a, size_a, stack_b, size_b, 40, 60);
-    // chunk1(stack_a, size_a, stack_b, size_b, 60, 80);
-    // chunk1(stack_a, size_a, stack_b, size_b, 80, 100);
-    // chunk(stack_a, size_a, stack_b, size_b);
+    int min;
+    int max;
+    int loop;
+
+    min = min_search(stack_a, size_a);
+    max = max_search(stack_a, size_a);
+    loop = max;
+    while(loop > min)
+    {
+        chunk1(stack_a, size_a, stack_b, size_b, loop - 20, loop);
+        loop -= 20;
+    }
+    chunk(stack_a, size_a, stack_b, size_b);
 }
