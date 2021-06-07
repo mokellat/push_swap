@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/07 19:52:29 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:19:50 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,9 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
     int i;
     int max;
     int cmpt;
-    int index;
     int j;
 
     i = 0;
-    index = -1;
     while(*size_b > 0)
     {
         i = 0;
@@ -114,7 +112,7 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
                 j++;
             }
             pa(stack_a, stack_b, size_a, size_b);
-        }
+         }
     }
 }
 
@@ -126,37 +124,32 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
     i = 0;
     while (*size_a > 0)
     {
-        i = 0;
-        while(i < *size_a)
+        if (stack_a[i] >= minimum && stack_a[i] < max)
         {
-            if (stack_a[i] >= minimum && stack_a[i] < max)
+            if (i < *size_a / 2)
             {
-                if (i < *size_a / 2)
+                j = 0;
+                while (j < i)
                 {
-                    j = 0;
-                    while (j < i)
-                    {
-                        ra(stack_a, *size_a);
-                        j++;
-                    }
-                    pb(stack_a, stack_b, size_a, size_b);
-                    break ;
+                    ra(stack_a, *size_a);
+                    j++;
                 }
-                else
-                {
-                    j = 0;
-                    while (j < *size_a - i)
-                    {
-                        rra(stack_a, *size_a);
-                        j++;
-                    }
-                    pb(stack_a, stack_b, size_a, size_b);
-                    break ;
-                }
+                pb(stack_a, stack_b, size_a, size_b);
+                i = 0;
             }
             else
-                i++;
+            {
+                j = 0;
+                while (j < *size_a - i)
+                {
+                    rra(stack_a, *size_a);
+                    j++;
+                }
+                pb(stack_a, stack_b, size_a, size_b);
+                i = 0;
+            }
         }
+        i++;
     }
 }
 

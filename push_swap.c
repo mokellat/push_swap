@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/07 19:46:13 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:16:07 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,16 @@ int     main(int argc, char **argv)
         i++;
     }
     if(size == 3)
-       three_numbers(stack_a, &size);
+      three_numbers(stack_a, &size);
     else if(size == 5)
-       sort_five_num(stack_a, stack_b, size, size1);
+      sort_five_num(stack_a, stack_b, size, size1);
     else if(size == 100)
-       hundred_num(stack_a, stack_b, &size, &size1);
-    printf("beginning of printing \n");
-    for(i = 0; i < size; i++)
-        printf("%d \n", stack_a[i]);
-    printf("this is the second array \n");
-    for(i = 0; i < size1; i++)
-        printf("%d \n", stack_b[i]);
+      hundred_num(stack_a, stack_b, &size, &size1);
+   //  printf("beginning of printing \n");
+   //  for(i = 0; i < size; i++)
+   //      printf("%d \n", stack_a[i]);
+   //  printf("this is the second array \n");
+   //  for(i = 0; i < size1; i++)
+   //      printf("%d \n", stack_b[i]);
     return 0;
 }
