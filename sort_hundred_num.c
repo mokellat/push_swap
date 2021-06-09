@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/08 20:54:20 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/09 14:11:33 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,6 @@ int     max_search(int *stack_a, int *size_a)
     return (max);
 }
 
-void    delete_elem(int *ptr, int *size, int index)
-{
-    int i;
-
-    i = index;
-    while(i < *size)
-    {
-        ptr[i] = ptr[i + 1];
-        i++;
-    }
-    // *size--;
-}
-
 void     stack_transform(int *stack_a, int *size_a)
 {
     int     i;
@@ -80,15 +67,12 @@ void     stack_transform(int *stack_a, int *size_a)
             }
             i++;
         }
-        printf("this is the min and cmpt %d %d \n", min, cmpt);
-        temp[cmpt] = stack_a[cmpt];
-        delete_elem(stack_a, size_a, cmpt);
-        stack_a[*size_a - index] = INT_MAX;
-        printf("%d \n", temp[cmpt]);
+        temp[cmpt] = index + 1;
+        stack_a[cmpt] = INT_MAX;
         index++;
     }
     i = 0;
-    while(i < 100)
+    while (i < 100)
     {
         stack_a[i] = temp[i];
         i++;
@@ -101,9 +85,11 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
     int max;
     int cmpt;
     int j;
+    int index;
 
     i = 0;
-    while(*size_b > 0)
+    index = -1;
+    while(++index < 100)
     {
         i = 0;
         max = stack_b[i];
@@ -145,7 +131,7 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
     int j;
 
     i = 0;
-    while (i < *size_a)
+    while (i < *size_a + 2)
     {    
         if (stack_a[i] >= minimum && stack_a[i] < max)
         {
@@ -178,9 +164,15 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
 
 void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    // int min;
-    // int max;
-    // int loop;
+    int loop;
 
+    
     stack_transform(stack_a, size_a);
+    loop = 100;
+    while(loop > 0)
+    {
+        chunk1(stack_a, size_a, stack_b, size_b, loop - 20, loop);
+        loop -= 20;
+    }
+    chunk(stack_a, size_a, stack_b, size_b);
 }
