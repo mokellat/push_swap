@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/09 14:11:33 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/09 16:54:32 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
     int index;
 
     i = 0;
+    int k = 0;
     index = -1;
-    while(++index < 100)
+    while(*size_b > 0)
     {
         i = 0;
         max = stack_b[i];
@@ -122,7 +123,9 @@ void    chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
             }
             pa(stack_a, stack_b, size_a, size_b);
          }
+         k++;
     }
+
 }
 
 void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
@@ -131,7 +134,8 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
     int j;
 
     i = 0;
-    while (i < *size_a + 2)
+    int k = 0;
+    while (k < 100)
     {    
         if (stack_a[i] >= minimum && stack_a[i] < max)
         {
@@ -158,6 +162,7 @@ void    chunk1(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum
                 i = 0;
             }
         }
+        k++;
         i++;
     }
 }
