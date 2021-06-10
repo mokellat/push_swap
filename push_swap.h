@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/08 20:49:28 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:06:26 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int     *rrb(int *stack_a, int size);
 void    three_numbers(int *stack_a, int *size_a);
 void    sort_five_num(int *stack_a, int *stack_b, int size_a, int size_b);
 void    hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void    five_hun_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/10 16:57:10 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/10 21:11:37 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ int     main(int argc, char **argv)
       sort_five_num(stack_a, stack_b, size, size1);
     else if(size == 100)
       hundred_num(stack_a, stack_b, &size, &size1);
+    else if(size == 500)
+      five_hun_num(stack_a, stack_b, &size, &size1);
     // printf("beginning of printing \n");
     // for(i = 0; i < size; i++)
     //     printf("%d \n", stack_a[i]);

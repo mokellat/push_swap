@@ -17,6 +17,7 @@ SRC = pa.c\
 	  sort_three_num.c\
 	  sort_five_num.c\
 	  sort_hundred_num.c\
+	  sort_five_hund_num.c\
 
 all : $(NAME)
 
