@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five_hund_num.c                               :+:      :+:    :+:   */
+/*   sort_others.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 21:04:19 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/11 15:41:55 by mokellat         ###   ########.fr       */
+/*   Created: 2021/06/11 15:43:48 by mokellat          #+#    #+#             */
+/*   Updated: 2021/06/11 16:01:56 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void     stack_transform_fhun(int *stack_a, int *size_a)
+void    stack_transform_others(int *stack_a, int *size_a)
 {
     int     i;
     int     min;
@@ -22,7 +22,7 @@ void     stack_transform_fhun(int *stack_a, int *size_a)
 
     temp = (int *)malloc(*size_a * sizeof(int));
     index = 0;
-    while(index < 500)
+    while(index < *size_a)
     {
         i = 0;
         min = stack_a[i];
@@ -40,25 +40,23 @@ void     stack_transform_fhun(int *stack_a, int *size_a)
         index++;
     }
     i = 0;
-    while (i < 500)
+    while (i < *size_a)
     {
         stack_a[i] = temp[i];
         i++;
     }
 }
 
-void    chunk_fhund(int *stack_a, int *size_a, int *stack_b, int *size_b)
+void    chunk_others(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
     int i;
     int max;
     int cmpt;
     int j;
-    int index;
 
     i = 0;
     int k = 0;
-    index = 501;
-    while(--index > 0)
+    while(*size_b > 0)
     {
         i = 0;
         max = stack_b[i];
@@ -91,19 +89,21 @@ void    chunk_fhund(int *stack_a, int *size_a, int *stack_b, int *size_b)
             }
             pa(stack_a, stack_b, size_a, size_b);
          }
-         k++;
+        k++;
     }
 }
 
-void    chunk1_fhund(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
+void    chunk1_others(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
 {   
     int i;
     int j;
     int k;
+    int index;
 
     i = 0;
     k = 0;
-    while (k < 500)
+    index = *size_a;
+    while (k < index)
     {
         i = 0;
         while(i < *size_a)
@@ -139,19 +139,19 @@ void    chunk1_fhund(int *stack_a, int *size_a, int *stack_b, int *size_b, int m
     }
 }
 
-void    five_hun_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
+void    other_nums(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
     int loop;
     int plus;
 
     
-    stack_transform_fhun(stack_a, size_a);
-    loop = 0;
-    plus = 40;
-    while(loop < 500)
+    stack_transform_others(stack_a, size_a);
+    loop = *size_a;
+    plus = 20;
+    while(loop > 0)
     {
-        chunk1_fhund(stack_a, size_a, stack_b, size_b, loop, loop + plus);
-        loop += plus;
+        chunk1_others(stack_a, size_a, stack_b, size_b, loop - plus, loop);
+        loop -= plus;
     }
-    chunk_fhund(stack_a, size_a, stack_b, size_b);
+    chunk_others(stack_a, size_a, stack_b, size_b);
 }
