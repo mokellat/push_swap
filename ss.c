@@ -6,15 +6,15 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:47:26 by mokellat          #+#    #+#             */
-/*   Updated: 2021/05/26 16:16:33 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/13 16:53:00 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ss(int *stack_a, int *stack_b)
+void	ss(int *stack_a, int *stack_b)
 {
-    sa(stack_a);
-    sb(stack_b);
-    write(1, "ss\n", 3);
+	sa(stack_a);
+	sb(stack_b);
+	write(1, "ss\n", 3);
 }

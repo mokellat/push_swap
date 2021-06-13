@@ -26,7 +26,7 @@ $(NAME): $(SRC) push_swap.h
 	cd Libft; make;
 	$(CC) -g $(SRC) ./Libft/libft.a
 
-ARG100 = 0 6 5 4 7 1 10 3 9 8
+ARG100 = 0 6 5 4 7
 
 run: all
 	./push_swap $(ARG100)
