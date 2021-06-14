@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/13 17:30:20 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/14 19:27:42 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "./Libft/libft.h"
+
+typedef struct s_stack
+{
+	int *stack;
+	int *size;
+} t_stack;
 
 int		*sa(int *stack_a);
 int		*sb(int *stack_b);
