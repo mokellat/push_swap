@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/14 20:37:30 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:41:30 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,26 +43,25 @@ t_stack stack__b)
 
 void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum, int max)
 {
-	int	i;
-	int	j;
+	int	i_j[2];
 
-	i = -1;
-	while (++i < *stack_a.size)
+	i_j[0] = -1;
+	while (++i_j[0] < *stack_a.size)
 	{
-		if (stack_a.stack[i] >= minimum && stack_a.stack[i] < max)
+		if (stack_a.stack[i_j[0]] >= minimum && stack_a.stack[i_j[0]] < max)
 		{
-			if (i < *stack_a.size / 2)
+			if (i_j[0] < *stack_a.size / 2)
 			{
-				j = -1;
-				while (++j < i)
+				i_j[1] = -1;
+				while (++i_j[1] < i_j[0])
 					ra(stack_a.stack, *stack_a.size);
 				pb(stack_a.stack, stack_b.stack, stack_a.size, stack_b.size);
 				break ;
 			}
 			else
 			{
-				j = -1;
-				while (++j < *stack_a.size - i)
+				i_j[0] = -1;
+				while (++i_j[1] < *stack_a.size - i_j[0])
 					rra(stack_a.stack, *stack_a.size);
 				pb(stack_a.stack, stack_b.stack, stack_a.size, stack_b.size);
 				break ;
@@ -73,32 +72,31 @@ void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum, int max)
 
 void	stack_transform(int *stack_a, int *size_a)
 {
-	int	i;
 	int	min;
-	int	index;
+	int	index_i[2];
 	int	cmpt;
 	int	*temp;
 
 	temp = (int *)malloc(*size_a * sizeof(int));
-	index = -1;
-	while (++index < 100)
+	index_i[1] = -1;
+	while (++index_i[1] < 100)
 	{
-		i = -1;
-		min = stack_a[i + 1];
-		while (++i < *size_a)
+		index_i[0] = -1;
+		min = stack_a[index_i[0] + 1];
+		while (++index_i[0] < *size_a)
 		{
-			if (stack_a[i] <= min)
+			if (stack_a[index_i[0]] <= min)
 			{
-				min = stack_a[i];
-				cmpt = i;
+				min = stack_a[index_i[0]];
+				cmpt = index_i[0];
 			}
 		}
-		temp[cmpt] = index + 1;
+		temp[cmpt] = index_i[1] + 1;
 		stack_a[cmpt] = INT_MAX;
 	}
-	i = -1;
-	while (++i < 100)
-		stack_a[i] = temp[i];
+	index_i[0] = -1;
+	while (++index_i[0] < 100)
+		stack_a[index_i[0]] = temp[index_i[0]];
 }
 
 void	chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)
@@ -132,9 +130,7 @@ void	chunk1(t_stack stack_a, t_stack stack_b, int minimum, int max)
 
 	k = -1;
 	while (++k < 100)
-	{
 		condition_chunk1(stack_a, stack_b, minimum, max);
-	}
 }
 
 void	hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
