@@ -6,152 +6,88 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:43:48 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/11 16:01:56 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:17:11 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    stack_transform_others(int *stack_a, int *size_a)
+void	stack_transform_others(int *stack_a, int *size_a)
 {
-    int     i;
-    int     min;
-    int     index;
-    int     cmpt;
-    int     *temp;
+	int	min;
+	int	index_i[2];
+	int	cmpt;
+	int	*temp;
 
-    temp = (int *)malloc(*size_a * sizeof(int));
-    index = 0;
-    while(index < *size_a)
-    {
-        i = 0;
-        min = stack_a[i];
-        while(i < *size_a)
-        {
-            if(stack_a[i] <= min)
-            {
-                min = stack_a[i];
-                cmpt = i;
-            }
-            i++;
-        }
-        temp[cmpt] = index + 1;
-        stack_a[cmpt] = INT_MAX;
-        index++;
-    }
-    i = 0;
-    while (i < *size_a)
-    {
-        stack_a[i] = temp[i];
-        i++;
-    }
+	temp = (int *)malloc(*size_a * sizeof(int));
+	index_i[1] = -1;
+	while (++index_i[1] < *size_a)
+	{
+		index_i[0] = -1;
+		min = stack_a[index_i[0] + 1];
+		while (++index_i[0] < *size_a)
+		{
+			if (stack_a[index_i[0]] <= min)
+			{
+				min = stack_a[index_i[0]];
+				cmpt = index_i[0];
+			}
+		}
+		temp[cmpt] = index_i[1] + 1;
+		stack_a[cmpt] = INT_MAX;
+	}
+	index_i[0] = -1;
+	while (++index_i[0] < *size_a)
+		stack_a[index_i[0]] = temp[index_i[0]];
 }
 
-void    chunk_others(int *stack_a, int *size_a, int *stack_b, int *size_b)
+void	chunk_others(int *stack_a, int *size_a, int *stack_b, int *size_b)
 {
-    int i;
-    int max;
-    int cmpt;
-    int j;
+	int	i;
+	int	max;
+	int	cmpt;
 
-    i = 0;
-    int k = 0;
-    while(*size_b > 0)
-    {
-        i = 0;
-        max = stack_b[i];
-        while(i < *size_b)
-        {
-            if(stack_b[i] >= max)
-            {
-                max = stack_b[i];
-                cmpt = i;
-            }
-            i++;
-        }
-        if(cmpt <= *size_b / 2)
-        {
-            j = 0;
-            while(j < cmpt)
-            {
-                rb(stack_b, *size_b);
-                j++;
-            }
-            pa(stack_a, stack_b, size_a, size_b);
-        }
-        else if(cmpt > *size_b / 2)
-        {
-            j = 0;
-            while(j < *size_b - cmpt)
-            {
-                rrb(stack_b, *size_b);
-                j++;
-            }
-            pa(stack_a, stack_b, size_a, size_b);
-         }
-        k++;
-    }
+	while (*size_b > 0)
+	{
+		i = -1;
+		max = stack_b[i + 1];
+		while (++i < *size_b)
+		{
+			if (stack_b[i] >= max)
+			{
+				max = stack_b[i];
+				cmpt = i;
+			}
+		}
+		condition_chunk(cmpt, (t_stack){stack_a, size_a},
+			(t_stack){stack_b, size_b});
+	}
 }
 
-void    chunk1_others(int *stack_a, int *size_a, int *stack_b, int *size_b, int minimum, int max)
-{   
-    int i;
-    int j;
-    int k;
-    int index;
+void	chunk1_others(t_stack stack_a, t_stack stack_b, int minimum, int max)
+{
+	int	k;
+	int	index;
 
-    i = 0;
-    k = 0;
-    index = *size_a;
-    while (k < index)
-    {
-        i = 0;
-        while(i < *size_a)
-        {
-            if (stack_a[i] >= minimum && stack_a[i] < max)
-            {
-                if (i < *size_a / 2)
-                {
-                    j = 0;
-                    while (j < i)
-                    {
-                        ra(stack_a, *size_a);
-                        j++;
-                    }
-                    pb(stack_a, stack_b, size_a, size_b);
-                    break ;
-                }
-                else
-                {
-                    j = 0;
-                    while (j < *size_a - i)
-                    {
-                        rra(stack_a, *size_a);
-                        j++;
-                    }
-                    pb(stack_a, stack_b, size_a, size_b);
-                    break;
-                }
-            }
-            i++;
-        }
-        k++;
-    }
+	k = -1;
+	index = *stack_a.size;
+	while (++k < index)
+		condition_chunk1(stack_a, stack_b, minimum, max);
 }
 
-void    other_nums(int *stack_a, int *stack_b, int *size_a, int *size_b)
+void	other_nums(int *stack_a, int *stack_b, int *size_a, int *size_b)
 {
-    int loop;
-    int plus;
+	int	loop;
+	int	plus;
 
-    
-    stack_transform_others(stack_a, size_a);
-    loop = *size_a;
-    plus = 20;
-    while(loop > 0)
-    {
-        chunk1_others(stack_a, size_a, stack_b, size_b, loop - plus, loop);
-        loop -= plus;
-    }
-    chunk_others(stack_a, size_a, stack_b, size_b);
+	stack_transform_others(stack_a, size_a);
+	loop = *size_a;
+	plus = 20;
+	while (loop > 0)
+	{
+		chunk1_others((t_stack){stack_a, size_a}, (t_stack){stack_b, size_b},
+			loop - plus, loop);
+		loop -= plus;
+	}
+	chunk_others(stack_a, size_a, stack_b, size_b);
 }

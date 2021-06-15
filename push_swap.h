@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/14 19:27:42 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/15 19:31:13 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "./Libft/libft.h"
 
 typedef struct s_stack
 {
-	int *stack;
-	int *size;
-} t_stack;
+	int	*stack;
+	int	*size;
+}	t_stack;
 
 int		*sa(int *stack_a);
 int		*sb(int *stack_b);
@@ -40,5 +39,9 @@ void	sort_five_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	hundred_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	five_hun_num(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	other_nums(int *stack_a, int *stack_b, int *size_a, int *size_b);
+void	condition_chunk(int cmpt, t_stack stack__a, t_stack stack__b);
+void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum,
+			int max);
+int		ft_atoi(const char *str);
 
 #endif

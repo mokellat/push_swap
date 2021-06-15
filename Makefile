@@ -19,12 +19,12 @@ SRC = pa.c\
 	  sort_hundred_num.c\
 	  sort_five_hund_num.c\
 	  sort_others.c\
+	  utils.c\
 
 all : $(NAME)
 
 $(NAME): $(SRC) push_swap.h
-	cd Libft; make;
-	$(CC) -g $(SRC) ./Libft/libft.a
+	$(CC) -g $(SRC)
 
 ARG100 = 0 6 5 4 7
 
