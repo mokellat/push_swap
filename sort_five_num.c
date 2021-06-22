@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:21:47 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/13 18:15:58 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/22 07:02:59 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sort_five_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int	j;
 
 	index = -1;
+	j = 0;
 	while (++index < 2)
 	{
 		i = -1;

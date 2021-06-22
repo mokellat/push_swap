@@ -1,6 +1,7 @@
-CC = gcc -o push_swap
+FLAGS = -Wall -Wextra -Werror
 DFLAGS = -fsanitize=address
 NAME = push_swap
+CHECKER = checker
 
 SRC = pa.c\
 	  pb.c\
@@ -13,18 +14,20 @@ SRC = pa.c\
 	  sa.c\
 	  sb.c\
 	  ss.c\
-	  push_swap.c\
 	  sort_three_num.c\
 	  sort_five_num.c\
 	  sort_hundred_num.c\
 	  sort_five_hund_num.c\
 	  sort_others.c\
 	  utils.c\
+	  get_next_line.c\
 
-all : $(NAME)
+all : $(NAME) $(CHECKER)
 
-$(NAME): $(SRC) push_swap.h
-	$(CC) -g $(SRC)
+$(NAME): $(SRC) push_swap.c
+	gcc $(FLAGS) -o $(NAME) push_swap.c $(SRC) -g
+$(CHECKER): $(SRC) checker.c
+	gcc $(FLAGS) -o $(CHECKER) checker.c $(SRC) -g
 
 ARG100 = 0 6 5 4 7
 
