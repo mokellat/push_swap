@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:30:08 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 11:16:42 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:41:52 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,29 @@ void	exec_fun_check(int size, int *stack_a, int size1, int *stack_b)
 	}
 }
 
+int	check_arg(char **argv, int size)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 1;
+	while(i < size)
+	{
+		j = 0;
+		while(j < (int)ft_strlen(argv[i]))
+		{
+			if(!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
+			{
+				return (0);
+			}
+			j++;	
+		}
+		i++;
+	}
+	return (1);
+}
+
 int main(int argc, char **argv)
 {
 	int		*stack_a;
@@ -63,18 +86,17 @@ int main(int argc, char **argv)
 	i = 0;
 	size = argc - 1;
 	size1 = 0;
+	if(!check_arg(argv, argc))
+		{
+			ft_putstr("ERROR!");
+			exit(EXIT_FAILURE);
+		}
 	stack_a = malloc(sizeof(int) * size);
 	stack_b = malloc(sizeof(int) * size);
 	while (i < argc - 1)
 	{
 		stack_a[i] = ft_atoi(argv[i + 1]);
-		if(ft_isdigit(stack_a[i] + '0'))
-		{
-			ft_putstr("ERROR!");
-			free(stack_a);
-			free(stack_b);
-			exit(EXIT_FAILURE);
-		}
+		printf("this is the stack %d \n", stack_a[i]);
 		i++;
 	}
 	while(get_next_line(&line) > 0)

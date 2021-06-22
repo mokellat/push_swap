@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 11:12:44 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/22 21:29:43 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <limits.h>
 
 typedef struct s_stack
@@ -50,5 +51,6 @@ void	checker(void);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_isdigit(int c);
 void	ft_putstr(char *s);
+size_t	ft_strlen(const char *str);
 
 #endif

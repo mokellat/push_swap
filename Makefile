@@ -20,12 +20,14 @@ SRC = pa.c\
 	  sort_five_hund_num.c\
 	  sort_others.c\
 	  utils.c\
+	  utils1.c\
 	  get_next_line.c\
 
 all : $(NAME) $(CHECKER)
 
 $(NAME): $(SRC) push_swap.c
 	gcc $(FLAGS) -o $(NAME) push_swap.c $(SRC) -g
+
 $(CHECKER): $(SRC) checker.c
 	gcc $(FLAGS) -o $(CHECKER) checker.c $(SRC) -g
 
