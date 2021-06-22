@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:51:59 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/15 19:38:26 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/22 06:16:28 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,19 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (num * neg);
+}
+
+int	is_sorted(int *stack_a, int *size_a)
+{
+	int	i;
+
+	i = 0;
+	while(i < *size_a && i + 1 < *size_a)
+	{
+		if(stack_a[i] > stack_a[i + 1])
+			return (0);
+		else
+			i++;
+	}
+	return (1);
 }

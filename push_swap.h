@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/15 19:31:13 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/22 06:11:21 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	condition_chunk(int cmpt, t_stack stack__a, t_stack stack__b);
 void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum,
 			int max);
 int		ft_atoi(const char *str);
+int		is_sorted(int *stack_a, int *size_a);
 
 #endif
