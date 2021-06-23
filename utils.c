@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:51:59 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 10:59:30 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:22:32 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum, int max)
 long	ft_atoi(const char *str)
 {
 	long	neg;
-	int	i;
+	int		i;
 	long	num;
 
 	i = 0;
@@ -101,9 +101,9 @@ int	is_sorted(int *stack_a, int *size_a)
 	int	i;
 
 	i = 0;
-	while(i < *size_a && i + 1 < *size_a)
+	while (i < *size_a && i + 1 < *size_a)
 	{
-		if(stack_a[i] > stack_a[i + 1])
+		if (stack_a[i] > stack_a[i + 1])
 			return (0);
 		else
 			i++;
@@ -113,7 +113,7 @@ int	is_sorted(int *stack_a, int *size_a)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')

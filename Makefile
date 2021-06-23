@@ -43,5 +43,7 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 	rm -rf push_swap
+	rm -rf $(CHECKER)
+	rm -rf checker
 
 re : fclean all

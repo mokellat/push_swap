@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 13:44:05 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:27:41 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	main(int argc, char **argv)
 	size1 = 0;
 	if ((!is_int(argv, argc) || !double_arg(argv, argc)))
 	{
-		ft_putstr("ERROR\n");
+		ft_putstr("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	stack_a = malloc(sizeof(int) * size);

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 21:22:14 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 10:00:12 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 18:22:55 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t length;
+	size_t	length;
 
 	length = 0;
 	while (str[length])
@@ -24,7 +24,7 @@ size_t	ft_strlen(const char *str)
 
 void	ft_putstr(char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s)
