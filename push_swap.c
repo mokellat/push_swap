@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 11:46:28 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 12:03:11 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	size = argc - 1;
 	size1 = 0;
-	if(!is_int(argv, argc) || !double_arg(argv, argc))
+	if((!is_int(argv, argc) || !double_arg(argv, argc)))
 	{
 		ft_putstr("ERROR\n");
 		exit(EXIT_FAILURE);

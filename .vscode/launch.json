@@ -8,8 +8,8 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/checker",
-            "args": ["1","2","2"],
+            "program": "${workspaceFolder}/push_swap",
+            "args": ["1","2","l"],
             "cwd": "${workspaceFolder}"
         }
     ]
