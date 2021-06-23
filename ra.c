@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:50:05 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 09:14:41 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:14:59 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	*ra(int *stack_a, int size)
 		i++;
 	}
 	stack_a[size - 1] = temp;
-	write(1, "ra\n", 3);
+	if (DISPLAY)
+		write(1, "ra\n", 3);
 	return (stack_a);
 }

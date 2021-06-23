@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 13:33:33 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 09:14:49 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:16:38 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ void	rr(int *stack_a, int *stack_b, int size)
 {
 	ra(stack_a, size);
 	rb(stack_b, size);
-	write(1, "rr\n", 3);
+	if (DISPLAY)
+		write(1, "rr\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 18:47:26 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 09:15:15 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:17:18 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ void	ss(int *stack_a, int *stack_b)
 {
 	sa(stack_a);
 	sb(stack_b);
-	write(1, "ss\n", 3);
+	if (DISPLAY)
+		write(1, "ss\n", 3);
 }

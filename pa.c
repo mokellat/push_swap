@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:39:28 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 09:14:21 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:17:38 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ void	pa(int *stack_a, int *stack_b, int *size_a, int *size_b)
 		i--;
 	}
 	stack_a[0] = temp;
-	write(1, "pa\n", 3);
+	if (DISPLAY)
+		write(1, "pa\n", 3);
 }

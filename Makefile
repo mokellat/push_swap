@@ -27,10 +27,10 @@ SRC = pa.c\
 all : $(NAME) $(CHECKER)
 
 $(NAME): $(SRC) push_swap.c
-	gcc $(FLAGS) -o $(NAME) push_swap.c $(SRC) -g
+	gcc -D DISPLAY=1 $(FLAGS) -o $(NAME) push_swap.c $(SRC) -g
 
 $(CHECKER): $(SRC) checker.c
-	gcc $(FLAGS) -o $(CHECKER) checker.c $(SRC) -g
+	gcc -D DISPLAY=0 $(FLAGS) -o $(CHECKER) checker.c $(SRC) -g
 
 ARG100 = 0 6 5 4 7
 
