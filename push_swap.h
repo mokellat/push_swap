@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:05:50 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 21:29:43 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:59:45 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	other_nums(int *stack_a, int *stack_b, int *size_a, int *size_b);
 void	condition_chunk(int cmpt, t_stack stack__a, t_stack stack__b);
 void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum,
 			int max);
-int		ft_atoi(const char *str);
+long		ft_atoi(const char *str);
 int		is_sorted(int *stack_a, int *size_a);
 int		get_next_line(char **line);
 void	checker(void);
@@ -52,5 +52,7 @@ int		ft_strcmp(char *s1, char *s2);
 int		ft_isdigit(int c);
 void	ft_putstr(char *s);
 size_t	ft_strlen(const char *str);
+int		double_arg(char **argv, int argc);
+int		is_int(char **argv, int size);
 
 #endif

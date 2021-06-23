@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 18:51:59 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 20:17:47 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:59:30 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	condition_chunk1(t_stack stack_a, t_stack stack_b, int minimum, int max)
 	}
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	neg;
+	long	neg;
 	int	i;
-	int	num;
+	long	num;
 
 	i = 0;
 	neg = 1;

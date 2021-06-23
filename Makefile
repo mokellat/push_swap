@@ -21,6 +21,7 @@ SRC = pa.c\
 	  sort_others.c\
 	  utils.c\
 	  utils1.c\
+	  errors_check.c\
 	  get_next_line.c\
 
 all : $(NAME) $(CHECKER)

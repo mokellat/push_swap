@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 11:50:22 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/15 19:10:03 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 11:54:41 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	stack_transform(int *stack_a, int *size_a)
 	index_i[0] = -1;
 	while (++index_i[0] < 100)
 		stack_a[index_i[0]] = temp[index_i[0]];
+	free(temp);
 }
 
 void	chunk(int *stack_a, int *size_a, int *stack_b, int *size_b)

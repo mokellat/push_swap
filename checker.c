@@ -6,72 +6,19 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:30:08 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 21:41:52 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 10:46:30 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr(char *s)
+void	free_pointers(int status, char *line, int *stack_a, int *stack_b, char *message)
 {
-	int i;
-
-	i = 0;
-	if (s)
-	{
-		while (s[i])
-		{
-			write(1, &s[i], 1);
-			i++;
-		}
-	}
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-void	exec_fun_check(int size, int *stack_a, int size1, int *stack_b)
-{
-	if(!is_sorted(stack_a, &size))
-	{
-		if (size == 3)
-			three_numbers(stack_a, &size);
-		else if (size == 5)
-			sort_five_num(stack_a, stack_b, &size, &size1);
-		else if (size == 100)
-			hundred_num(stack_a, stack_b, &size, &size1);
-		else if (size == 500)
-			five_hun_num(stack_a, stack_b, &size, &size1);
-		else
-			other_nums(stack_a, stack_b, &size, &size1);
-	}
-}
-
-int	check_arg(char **argv, int size)
-{
-	int	i;
-	int	j;
-
-	j = 0;
-	i = 1;
-	while(i < size)
-	{
-		j = 0;
-		while(j < (int)ft_strlen(argv[i]))
-		{
-			if(!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
-			{
-				return (0);
-			}
-			j++;	
-		}
-		i++;
-	}
-	return (1);
+	ft_putstr(message);
+	free(line);
+	free(stack_a);
+	free(stack_b);
+	exit(status);	
 }
 
 int main(int argc, char **argv)
@@ -86,17 +33,18 @@ int main(int argc, char **argv)
 	i = 0;
 	size = argc - 1;
 	size1 = 0;
-	if(!check_arg(argv, argc))
-		{
-			ft_putstr("ERROR!");
-			exit(EXIT_FAILURE);
-		}
+	if (size < 1)
+		return (0);
+	if(!is_int(argv, argc) || !double_arg(argv, argc))
+	{
+		ft_putstr("ERROR\n");
+		exit(EXIT_FAILURE);
+	}
 	stack_a = malloc(sizeof(int) * size);
 	stack_b = malloc(sizeof(int) * size);
 	while (i < argc - 1)
 	{
 		stack_a[i] = ft_atoi(argv[i + 1]);
-		printf("this is the stack %d \n", stack_a[i]);
 		i++;
 	}
 	while(get_next_line(&line) > 0)
@@ -123,10 +71,11 @@ int main(int argc, char **argv)
 			sb(stack_b);
 		else if(!ft_strcmp(line, "ss"))
 			ss(stack_a, stack_b);
+		else
+			free_pointers(EXIT_FAILURE, line, stack_a, stack_b, "ERROR\n");
 	}
 	if(is_sorted(stack_a, &size))
-		ft_putstr("OK!");
+		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b, "OK\n");
 	else
-		ft_putstr("KO!");
-
+		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b, "KO\n");
 }
