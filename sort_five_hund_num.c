@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 21:04:19 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 11:49:52 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:46:20 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	stack_transform_fhun(int *stack_a, int *size_a)
 	int	index_i[2];
 	int	cmpt;
 	int	*temp;
-
+	
 	temp = (int *)malloc(*size_a * sizeof(int));
 	index_i[1] = -1;
 	while (++index_i[1] < 500)

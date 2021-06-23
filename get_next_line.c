@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:32:35 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 13:42:32 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:10:53 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	get_next_line(char **line)
 	if (!line || !buffer)
 		return (-1);
 	*line[0] = '\0';
-	while (read(0, buffer, 1) > 0)
+	flag = 1;
+	while (flag)
 	{
 		flag = read(0, buffer, 1);
 		if (buffer[0] == '\n')

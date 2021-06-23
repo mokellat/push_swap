@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:30:08 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 13:37:45 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:37:59 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ int	main(int argc, char **argv)
 	int		*stack_a;
 	int		*stack_b;
 	int		size;
-	int		size1;
 	int		i;
 	char	*line;
 
 	i = 0;
 	size = argc - 1;
-	size1 = 0;
 	if (size < 1)
 		return (0);
 	if (!is_int(argv, argc) || !double_arg(argv, argc))
@@ -49,21 +47,21 @@ int	main(int argc, char **argv)
 	while (get_next_line(&line) > 0)
 	{
 		if (!ft_strcmp(line, "pa"))
-			pa(stack_a, stack_b, &size, &size1);
+			pa(stack_a, stack_b, &size, &size);
 		else if (!ft_strcmp(line, "pb"))
-			pb(stack_a, stack_b, &size, &size1);
+			pb(stack_a, stack_b, &size, &size);
 		else if (!ft_strcmp(line, "ra"))
 			ra(stack_a, size);
 		else if (!ft_strcmp(line, "rb"))
-			rb(stack_b, size1);
+			rb(stack_b, size);
 		else if (!ft_strcmp(line, "rr"))
 			rr(stack_a, stack_b, size);
 		else if (!ft_strcmp(line, "rra"))
 			rra(stack_a, size);
 		else if (!ft_strcmp(line, "rrb"))
-			rrb(stack_b, size1);
+			rrb(stack_b, size);
 		else if (!ft_strcmp(line, "rrr"))
-			rrr(stack_a, stack_b, size, size1);
+			rrr(stack_a, stack_b, size, size);
 		else if (!ft_strcmp(line, "sa"))
 			sa(stack_a);
 		else if (!ft_strcmp(line, "sb"))
