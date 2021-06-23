@@ -6,22 +6,21 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:30:08 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 12:47:33 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:37:45 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_pointers(int status, char *line, int *stack_a, int *stack_b, char *message)
+void	free_pointers(int status, char *line, int *stack_a, int *stack_b)
 {
-	ft_putstr(message);
 	free(line);
 	free(stack_a);
 	free(stack_b);
-	exit(status);	
+	exit(status);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	int		*stack_b;
@@ -35,9 +34,9 @@ int main(int argc, char **argv)
 	size1 = 0;
 	if (size < 1)
 		return (0);
-	if(!is_int(argv, argc) || !double_arg(argv, argc))
+	if (!is_int(argv, argc) || !double_arg(argv, argc))
 	{
-		ft_putstr("ERROR\n");
+		ft_putstr("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	stack_a = malloc(sizeof(int) * size);
@@ -47,35 +46,44 @@ int main(int argc, char **argv)
 		stack_a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	while(get_next_line(&line) > 0)
+	while (get_next_line(&line) > 0)
 	{
-		if(!ft_strcmp(line, "pa"))
+		if (!ft_strcmp(line, "pa"))
 			pa(stack_a, stack_b, &size, &size1);
-		else if(!ft_strcmp(line, "pb"))
+		else if (!ft_strcmp(line, "pb"))
 			pb(stack_a, stack_b, &size, &size1);
-		else if(!ft_strcmp(line, "ra"))
+		else if (!ft_strcmp(line, "ra"))
 			ra(stack_a, size);
-		else if(!ft_strcmp(line, "rb"))
+		else if (!ft_strcmp(line, "rb"))
 			rb(stack_b, size1);
-		else if(!ft_strcmp(line, "rr"))
+		else if (!ft_strcmp(line, "rr"))
 			rr(stack_a, stack_b, size);
-		else if(!ft_strcmp(line, "rra"))
+		else if (!ft_strcmp(line, "rra"))
 			rra(stack_a, size);
-		else if(!ft_strcmp(line, "rrb"))
+		else if (!ft_strcmp(line, "rrb"))
 			rrb(stack_b, size1);
-		else if(!ft_strcmp(line, "rrr"))
+		else if (!ft_strcmp(line, "rrr"))
 			rrr(stack_a, stack_b, size, size1);
-		else if(!ft_strcmp(line, "sa"))
+		else if (!ft_strcmp(line, "sa"))
 			sa(stack_a);
-		else if(!ft_strcmp(line, "sb"))
+		else if (!ft_strcmp(line, "sb"))
 			sb(stack_b);
-		else if(!ft_strcmp(line, "ss"))
+		else if (!ft_strcmp(line, "ss"))
 			ss(stack_a, stack_b);
 		else
-			free_pointers(EXIT_FAILURE, line, stack_a, stack_b, "ERROR\n");
+		{
+			ft_putstr("Error\n");
+			free_pointers(EXIT_FAILURE, line, stack_a, stack_b);
+		}
 	}
-	if(is_sorted(stack_a, &size))
-		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b, "OK\n");
+	if (is_sorted(stack_a, &size))
+	{
+		ft_putstr("OK\n");
+		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b);
+	}
 	else
-		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b, "KO\n");
+	{
+		ft_putstr("KO\n");
+		free_pointers(EXIT_SUCCESS, line, stack_a, stack_b);
+	}
 }

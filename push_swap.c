@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:06:17 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 12:03:11 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:44:05 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exec_fun(int size, int *stack_a, int size1, int *stack_b)
 {
-	if(!is_sorted(stack_a, &size))
+	if (!is_sorted(stack_a, &size))
 	{
 		if (size == 3)
 			three_numbers(stack_a, &size);
@@ -40,7 +40,7 @@ int	main(int argc, char **argv)
 	i = 0;
 	size = argc - 1;
 	size1 = 0;
-	if((!is_int(argv, argc) || !double_arg(argv, argc)))
+	if ((!is_int(argv, argc) || !double_arg(argv, argc)))
 	{
 		ft_putstr("ERROR\n");
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 06:32:35 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 08:49:14 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:42:32 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static char	*ft_strjoin(char *s, char c)
 	i = 0;
 	while (s[i])
 		i++;
-	if (!(str = (char *)malloc(i + 2)))
+	str = (char *)malloc(i + 2);
+	if (!str)
 		return (0);
 	i = 0;
 	while (s[i])
@@ -34,17 +35,19 @@ static char	*ft_strjoin(char *s, char c)
 	return (str);
 }
 
-int		get_next_line(char **line)
+int	get_next_line(char **line)
 {
 	char	*buffer;
 	int		flag;
 
 	buffer = (char *)malloc(2);
-	if (!line || !(*line = (char *)malloc(1)) || !buffer)
+	*line = (char *)malloc(1);
+	if (!line || !buffer)
 		return (-1);
 	*line[0] = '\0';
-	while ((flag = read(0, buffer, 1)) > 0)
+	while (read(0, buffer, 1) > 0)
 	{
+		flag = read(0, buffer, 1);
 		if (buffer[0] == '\n')
 			break ;
 		*line = ft_strjoin(*line, buffer[0]);

@@ -6,7 +6,7 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 10:19:04 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 11:03:40 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/23 13:38:23 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	double_arg(char **argv, int argc)
 
 	i = 1;
 	j = 0;
-	while(i < argc)
+	while (i < argc)
 	{
 		j = i + 1;
-		while(j < argc)
+		while (j < argc)
 		{
-			if(!ft_strcmp(argv[i], argv[j]))
+			if (!ft_strcmp(argv[i], argv[j]))
 				return (0);
 			j++;
 		}
@@ -40,7 +40,7 @@ int	is_int(char **argv, int size)
 
 	j = 0;
 	i = 1;
-	while(i < size)
+	while (i < size)
 	{
 		j = 0;
 		if (argv[i][j] == '-')
@@ -49,13 +49,13 @@ int	is_int(char **argv, int size)
 			|| ft_atoi(argv[i]) > INT_MAX
 			|| ft_atoi(argv[i]) < INT_MIN)
 			return (0);
-		while(j < (int)ft_strlen(argv[i]))
+		while (j < (int)ft_strlen(argv[i]))
 		{
-			if(!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != ' ')
 			{
 				return (0);
 			}
-			j++;	
+			j++;
 		}
 		i++;
 	}
