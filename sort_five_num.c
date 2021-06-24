@@ -6,14 +6,16 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 19:21:47 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/22 07:02:59 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/24 17:58:55 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	position(int cmpt, int *size_a, int j, int *stack_a)
+void	position(int cmpt, int *size_a, int *stack_a)
 {
+	int	j;
+
 	if (cmpt <= *size_a / 2)
 	{
 		j = -1;
@@ -34,10 +36,8 @@ void	sort_five_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 	int	i;
 	int	cmpt;
 	int	index;
-	int	j;
 
 	index = -1;
-	j = 0;
 	while (++index < 2)
 	{
 		i = -1;
@@ -50,7 +50,7 @@ void	sort_five_num(int *stack_a, int *stack_b, int *size_a, int *size_b)
 				cmpt = i;
 			}
 		}
-		position(cmpt, size_a, j, stack_a);
+		position(cmpt, size_a, stack_a);
 		pb(stack_a, stack_b, size_a, size_b);
 	}
 	three_numbers(stack_a, size_a);

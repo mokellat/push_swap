@@ -6,11 +6,19 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 21:04:19 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 19:46:20 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/24 17:11:19 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	assign_fun(int index, int *temp, int *stack_a)
+{
+	index = -1;
+	while (++index < 500)
+		stack_a[index] = temp[index];
+	free(temp);
+}
 
 void	stack_transform_fhun(int *stack_a, int *size_a)
 {
@@ -18,7 +26,7 @@ void	stack_transform_fhun(int *stack_a, int *size_a)
 	int	index_i[2];
 	int	cmpt;
 	int	*temp;
-	
+
 	temp = (int *)malloc(*size_a * sizeof(int));
 	index_i[1] = -1;
 	while (++index_i[1] < 500)
@@ -36,10 +44,7 @@ void	stack_transform_fhun(int *stack_a, int *size_a)
 		temp[cmpt] = index_i[1] + 1;
 		stack_a[cmpt] = INT_MAX;
 	}
-	index_i[0] = -1;
-	while (++index_i[0] < 500)
-		stack_a[index_i[0]] = temp[index_i[0]];
-	free(temp);
+	assign_fun(index_i[0], temp, stack_a);
 }
 
 void	chunk_fhun(int *stack_a, int *size_a, int *stack_b, int *size_b)

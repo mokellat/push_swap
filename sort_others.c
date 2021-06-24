@@ -6,11 +6,19 @@
 /*   By: mokellat <mokellat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 15:43:48 by mokellat          #+#    #+#             */
-/*   Updated: 2021/06/23 11:54:52 by mokellat         ###   ########.fr       */
+/*   Updated: 2021/06/24 17:16:12 by mokellat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	assign_fun_others(int index, int *temp, int *stack_a, int size)
+{
+	index = -1;
+	while (++index < size)
+		stack_a[index] = temp[index];
+	free(temp);
+}
 
 void	stack_transform_others(int *stack_a, int *size_a)
 {
@@ -36,10 +44,7 @@ void	stack_transform_others(int *stack_a, int *size_a)
 		temp[cmpt] = index_i[1] + 1;
 		stack_a[cmpt] = INT_MAX;
 	}
-	index_i[0] = -1;
-	while (++index_i[0] < *size_a)
-		stack_a[index_i[0]] = temp[index_i[0]];
-	free(temp);
+	assign_fun_others(index_i[0], temp, stack_a, *size_a);
 }
 
 void	chunk_others(int *stack_a, int *size_a, int *stack_b, int *size_b)
