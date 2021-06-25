@@ -24,7 +24,7 @@ SRC = pa.c\
 	  errors_check.c\
 	  get_next_line.c\
 
-all : $(NAME) $(CHECKER)
+all : $(NAME)
 
 $(NAME): $(SRC) push_swap.c
 	gcc -D DISPLAY=1 $(FLAGS) -o $(NAME) push_swap.c $(SRC) -g
@@ -33,6 +33,8 @@ $(CHECKER): $(SRC) checker.c
 	gcc -D DISPLAY=0 $(FLAGS) -o $(CHECKER) checker.c $(SRC) -g
 
 ARG100 = 0 6 5 4 7
+
+bonus:$(CHECKER)
 
 run: all
 	./push_swap $(ARG100)
@@ -47,3 +49,4 @@ fclean : clean
 	rm -rf checker
 
 re : fclean all
+.PHONY: clean fclean bonus
