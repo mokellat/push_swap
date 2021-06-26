@@ -48,5 +48,5 @@ fclean : clean
 	rm -rf $(CHECKER)
 	rm -rf checker
 
-re : fclean all
+re : fclean all bonus
 .PHONY: clean fclean bonus
