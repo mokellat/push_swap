@@ -24,7 +24,7 @@ int	double_arg(char **argv, int argc)
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!ft_strcmp(argv[i], argv[j]))
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
 				return (0);
 			j++;
 		}
