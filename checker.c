@@ -20,7 +20,7 @@ void	free_pointers(int status, char *line, int *stack_a, int *stack_b)
 	exit(status);
 }
 
-int exec(t_stack stack_a, t_stack stack_b, char *line)
+int	exec(t_stack stack_a, t_stack stack_b, char *line)
 {
 	if (!ft_strcmp(line, "pa"))
 		pa(stack_a.stack, stack_b.stack, stack_a.size, stack_b.size);
@@ -54,9 +54,9 @@ void	check_int_double(char **argv, int argc, int *stack_a)
 	int	i;
 
 	i = 0;
-	if(!is_int(argv, argc) || !double_arg(argv, argc))
+	if (!is_int(argv, argc) || !double_arg(argv, argc))
 	{
-		ft_putstr("ERROR\n");
+		ft_putstr("Error\n");
 		exit(EXIT_FAILURE);
 	}
 	while (i < argc - 1)
@@ -75,7 +75,7 @@ void	sort(int *stack_a, int *stack_b, int size, char *line)
 	free_pointers(EXIT_SUCCESS, line, stack_a, stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		*stack_a;
 	int		*stack_b;
@@ -90,11 +90,11 @@ int main(int argc, char **argv)
 		return (0);
 	stack_a = malloc(sizeof(int) * size[0]);
 	check_int_double(argv, argc, stack_a);
-	stack_b = malloc(sizeof(int) * size[1]);
-	while(get_next_line(&line) > 0)
+	stack_b = malloc(sizeof(int) * size[0]);
+	while (get_next_line(&line) > 0)
 	{
 		if (exec((t_stack){stack_a, &size[0]},
-		(t_stack){stack_b, &size[1]}, line) == 0)
+			(t_stack){stack_b, &size[1]}, line) == 0)
 		{
 			ft_putstr("Error\n");
 			free_pointers(EXIT_FAILURE, line, stack_a, stack_b);
